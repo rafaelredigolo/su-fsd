@@ -51,7 +51,7 @@ export default function Home() {
     }
     useEffect(() => {
         sortCreatedAt()
-    },[])
+    },[list])
 
   return (
     <main>
@@ -62,7 +62,7 @@ export default function Home() {
         </select>
         <ul role="list" className="divide-y divide-gray-100">
             {currentList.map((item, index) => {
-               return <Card item={item} index={index} />
+               return <Card key={index} item={item} index={index} />
             })}
         </ul>
     </main>
