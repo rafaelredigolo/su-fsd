@@ -1,5 +1,5 @@
 import React from 'react';
-export const Card = ({item, index}) => {
+export const Card = ({item, index}: { item: any, index: number }) => {
     return <li className='flex justify-between gap-x-6 py-5' key={index.toString()}>
         <div className="shrink-0">
             <p className="text-sm leading-6 text-white-900">{item.fileName}</p>

@@ -1,14 +1,13 @@
 import {NextApiRequest, NextApiResponse} from "next";
 
-type Response = [
+type Response =
     {
         createdAt: string;
-        filename: string;
+        fileName: string;
     }
-]
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Response>) {
-    const items = [
+export default function handler(req: NextApiRequest, res: NextApiResponse<Response[]>) {
+    const items: Response[] = [
         { createdAt: '2023-06-25 11:00', fileName: '1abc.txt' },
         { createdAt: '2023-06-25 12:00', fileName: 'abc.txt' },
         { createdAt: '2023-06-25 13:00', fileName: '01abc.txt' },

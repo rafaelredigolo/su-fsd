@@ -5,14 +5,14 @@ import {Card} from "@/app/components/card";
 export default function Home() {
     const [currentList, setCurrentList] = useState([])
     const [list, setList] = useState([])
-    const [, updateState] = useState();
+    const [, updateState] = useState({});
     const forceUpdate = useCallback(() => updateState({}), []);
     useEffect(() => {
         fetch('/api/items').then((items) => items.json().then(data => setList(data)) )
     },[])
 
     const sortCreatedAt = () => {
-        list.sort((a, b) => {
+        list.sort((a: any, b: any) => {
             if (a.createdAt < b.createdAt) {
                 return -1
             }
@@ -26,13 +26,13 @@ export default function Home() {
     }
 
     const sortFileName = (reverse = false) => {
-        list.sort((a, b) => {
+        list.sort((a: any, b: any) => {
             return a.fileName.localeCompare(b.fileName, undefined, { numeric: true, sensitivity: 'base'})
         })
         reverse ? setCurrentList(list.reverse()) : setCurrentList(list)
     }
 
-    const sort = (e) => {
+    const sort = (e: any) => {
         setCurrentList([])
         const type = e.target.value
         switch (type) {
